@@ -160,3 +160,18 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# User defined
+result
+!result/.gitkeep
+policy
+model
+*copy*
+sascorer.py
+fpscores.pkl.gz
+lipinski_filter.py
+pains_filter.py
+pubchem_filter.py
+radical_filter.py
+ring_size_filter.py
+sascore_filter.py
