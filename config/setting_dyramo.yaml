@@ -1,0 +1,102 @@
+# Basic setting
+c_val: 0.01
+# threshold_type: [time, generation_num]
+threshold_type: generation_num
+# hours: 0.01
+generation_num: 10000
+output_dir: result/dyramo
+model_setting:
+  model_json: model/model_chembl220k.tf25.json
+  model_weight: model/model_chembl220k_rand.tf25.best.ckpt.h5
+token: model/tokens_chembl220k_rand.pkl
+reward_setting: 
+  reward_module: reward.DyRAMO_reward
+  reward_class: DyRAMO_reward
+
+# Advanced setting
+expansion_threshold: 0.995
+simulation_num: 3
+flush_threshold: -1
+policy_setting: 
+  policy_module: policy.ucb1
+  policy_class: Ucb1
+
+# Filter setting
+use_heavy_atom_count_filter: True
+heavy_atom_count_filter:
+  module: filter.heavy_atom_count_filter
+  class: HeavyAtomCountFilter
+  threshold: 45
+include_filter_result_in_reward: True
+
+# Neutralization
+neutralization: True
+neutralization_strategy: _  # canonicalize
+
+# Random seed
+random_seed:  # automatically set during the execution of DyRAMO.
+
+
+# Setting for DyRAMO
+# Settings for reward function in molecule generation
+reward_function:
+  property:
+    EGFR:
+      scaler: max_gauss
+      mu: 9
+      sigma: 2
+      weight: 1
+    Metabolic_stability:
+      scaler: max_gauss
+      mu: 75
+      sigma: 20
+      weight: 1
+    Permeability:
+      scaler: max_gauss
+      mu: 1
+      sigma: 1
+      weight: 1
+
+# Setting for search range in Bayesian optimization
+search_range:
+  EGFR:
+    min: 0.1
+    max: 0.9
+    step: 0.01
+  Metabolic_stability:
+    min: 0.1
+    max: 0.9
+    step: 0.01
+  Permeability:
+    min: 0.1
+    max: 0.9
+    step: 0.01
+
+# Setting for objective function in Bayesian optimization (DSS score)
+DSS:
+  reward:
+    ratio: 0.1
+  EGFR:
+    priority: high   # choose one from high, middle, or low
+  Metabolic_stability:
+    priority: middle
+  Permeability:
+    priority: middle
+
+# Setting for search strategies in Bayesian optimization (BO)
+  # For details of the parameters, please refer to the following URL: https://issp-center-dev.github.io/PHYSBO/manual/master/en/api/physbo.search.discrete.policy.html#module-physbo.search.discrete.policy
+    # num_random_search: Maximum number of random search process.
+    # num_bayes_search: Maximum number of searching process by Bayesian optimization.
+    # score: The type of aquision funciton. TS (Thompson Sampling), EI (Expected Improvement) and PI (Probability of Improvement) are available.
+    # interval: The interval number of learning the hyperparameters. If you set the negative value to interval, the hyper parameter learning is not performed. If you set zero to interval, the hyper parameter learning is performed only at the first step.
+    # num_rand_basis: The number of basis function. If you choose 0, ordinary Gaussian process run.
+BO:
+  num_random_search: 10
+  num_bayes_search: 30
+  score: EI
+  interval: 10
+  num_rand_basis: 500
+  seed: 0
+
+# Number of molecule generation at each search point
+num_generation: 3
