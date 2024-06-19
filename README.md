@@ -44,7 +44,7 @@ Details of the settings are described in [Setting to run DyRAMO](#settings-to-ru
 
 Please execute `run.py` with the yaml file as an argument.
 ```bash
-python run.py -c config/setting_DyRAMO.yaml
+python run.py -c config/setting_dyramo.yaml
 ```
 
 ## Settings to run DyRAMO
