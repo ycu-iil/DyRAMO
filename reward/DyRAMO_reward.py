@@ -8,8 +8,8 @@ from rdkit.Chem import AllChem
 from reward.reward import Reward
 
 
-LGB_MODELS_PATH = 'data/lgb_models.pickle'
-FEATURE_PATH = 'data/feature_dict.pickle'
+LGB_MODELS_PATH = 'data/lgb_models.pkl'
+FEATURE_PATH = 'data/fps.pkl'
 with open(LGB_MODELS_PATH, mode='rb') as l, \
     open(FEATURE_PATH, mode='rb') as f:
     lgb_models = pickle.load(l)
@@ -58,7 +58,7 @@ class DyRAMO_reward(Reward):
             if mol is None:
                 return None
             fp = [AllChem.GetMorganFingerprintAsBitVect(mol, 2, 2048)]
-            return lgb_models['Meta'].predict(fp)[0] #Stab
+            return lgb_models['Stab'].predict(fp)[0] #Stab
 
         def Perm(mol):
             if mol is None:
