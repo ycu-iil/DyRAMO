@@ -151,6 +151,21 @@ More details can be found in the following [link](https://github.com/molecule-ge
 >  ```
 
 
+## How to Cite
+
+```bibtex
+@article{Yoshizawa2024,
+  title = {Avoiding Reward Hacking in Multi-Objective Molecular Design: A Data-Driven Generative Strategy with a Reliable Design Framework},
+  url = {https://doi.org/10.26434/chemrxiv-2024-dh681},
+  DOI = {10.26434/chemrxiv-2024-dh681},
+  journal = {ChemRxiv},
+  author = {Yoshizawa, Tatsuya and Ishida, Shoichi and Sato, Tomohiro and Ohta, Masateru and Honma, Teruki and Terayama, Kei},
+  year = {2024},
+  month = jun
+}
+```
+
+
 ## License
 
 This package is distributed under the MIT License.
