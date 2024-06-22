@@ -170,6 +170,7 @@ More details can be found in the following [link](https://github.com/molecule-ge
 
 This package is distributed under the MIT License.
 
-## Author
+## Contact
 
-Tatsuya Yoshizawa (tatsuya.yoshizawa@riken.jp)
+- Tatsuya Yoshizawa (tatsuya.yoshizawa@riken.jp)
+- Kei Terayama (terayama@yokohama-cu.ac.jp)
