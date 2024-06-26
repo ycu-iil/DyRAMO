@@ -14,8 +14,7 @@ DyRAMO (Dynamic Reliability Adjustment for Multi-objective Optimization) is a fr
 ### Installation (example)
 
 ```bash
-conda create -n dyramo python=3.7
-# switch environment to `dyramo`
+# Create and switch to an environment with python=3.7.
 pip install chemtsv2==0.9.11 physbo==2.0.0 lightgbm==3.2.1
 ```
 
