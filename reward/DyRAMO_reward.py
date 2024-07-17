@@ -5,7 +5,7 @@ import numpy as np
 from rdkit import DataStructs
 from rdkit.Chem import AllChem
 
-from reward.reward import Reward
+from chemtsv2.reward import Reward
 
 
 LGB_MODELS_PATH = 'data/lgb_models.pkl'
