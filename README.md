@@ -6,16 +6,18 @@ DyRAMO (Dynamic Reliability Adjustment for Multi-objective Optimization) is a fr
 
 ### Requirements
 
-- python: 3.7
-- chemtsv2: 0.9.11
+- python: 3.11
+- chemtsv2: 1.0.3
 - physbo: 2.0.0
 - (optional) lightgbm: 3.2.1 (for property prediction)
 
 ### Installation (example)
 
 ```bash
-# Create and switch to an environment with python=3.7.
-pip install chemtsv2==0.9.11 physbo==2.0.0 lightgbm==3.2.1
+cd YOUR_WORKSPACE
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install chemtsv2==1.0.3 physbo==2.0.0 lightgbm==3.2.1
 ```
 
 ## How to run DyRAMO
@@ -30,7 +32,7 @@ cd DyRAMO
 ### 2. Prepare a reward file for molecule generation
 
 DyRAMO employs ChemTSv2 as a molecule generator.
-Here, please prepare a reward file for ChemTSv2 according to instructions on [how to define reward function in ChemTSv2](https://github.com/molecule-generator-collection/ChemTSv2/blob/4980a850bc2411fcdebe2adaab87609c2d75972e/reward/README.md).
+Here, please prepare a reward file for ChemTSv2 according to instructions on [how to define reward function in ChemTSv2](https://github.com/molecule-generator-collection/ChemTSv2/blob/c61abbc702b914a76e076d87d416cdc67d3fd517/reward/README.md).
 An example of a reward file for DyRAMO can be found in [`reward/DyRAMO_reward.py`](https://github.com/ycu-iil/DyRAMO/blob/main/reward/DyRAMO_reward.py).
 
 ### 3. Prepare a setting file
@@ -50,7 +52,7 @@ python run.py -c config/setting_dyramo.yaml
 
 The settings for DYRAMO and ChemTSv2 are described in a single yaml file.
 The settings for ChemTSv2 are partially quoted here.
-More details can be found in the following [link](https://github.com/molecule-generator-collection/ChemTSv2/blob/4980a850bc2411fcdebe2adaab87609c2d75972e/README.md#support-optionfunction-pushpin).
+More details can be found in the following [link](https://github.com/molecule-generator-collection/ChemTSv2/blob/c61abbc702b914a76e076d87d416cdc67d3fd517/README.md#support-optionfunction-pushpin).
 (The description of ChemTSv2 settings written here is taken from the above link.)
 
 <table>
@@ -82,7 +84,7 @@ More details can be found in the following [link](https://github.com/molecule-ge
     <tr>
         <td rowspan="1"><code>reward_function</code></td>
         <td><code>property</code></td>
-        <td>Settings for calculating reward function, Dscore. Datails for setting of the Dscore parameters can be found in the following <a href="https://github.com/molecule-generator-collection/ChemTSv2/blob/4980a850bc2411fcdebe2adaab87609c2d75972e/doc/multiobjective_optimization_using_dscore.md#how-to-adjust-dscore-paramaters" >link</a>.</td>
+        <td>Settings for calculating reward function, Dscore. Datails for setting of the Dscore parameters can be found in the following <a href="https://github.com/molecule-generator-collection/ChemTSv2/blob/c61abbc702b914a76e076d87d416cdc67d3fd517/doc/multiobjective_optimization_using_dscore.md#how-to-adjust-dscore-paramaters" >link</a>.</td>
     </tr>
     <tr>
         <td rowspan="4"><code>search_range</code></td>
@@ -163,6 +165,8 @@ More details can be found in the following [link](https://github.com/molecule-ge
   month = jun
 }
 ```
+> [!NOTE]
+> If you would like to reproduce the results of the above article, please checkout to [`b6c19e7`](https://github.com/ycu-iil/DyRAMO/tree/b6c19e72d4351c8e26b2decfd36ddf3a862e0d3f).
 
 
 ## License
