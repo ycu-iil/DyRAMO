@@ -4,14 +4,19 @@ DyRAMO (Dynamic Reliability Adjustment for Multi-objective Optimization) is a fr
 
 ## How to set up
 
-### Requirements
+### OS Requirements
+
+DyRAMO is supported for Linux operation systems.
+DyRAMO has been tested on AlmaLinux release 9.3. 
+
+### Python Dependencies
 
 - python: 3.11
 - chemtsv2: 1.0.3
 - physbo: 2.0.0
 - (optional) lightgbm: 3.2.1 (for property prediction)
 
-### Installation (example)
+#### Installation (example)
 
 ```bash
 cd YOUR_WORKSPACE
@@ -19,6 +24,7 @@ python3.11 -m venv .venv
 source .venv/bin/activate
 pip install chemtsv2==1.0.3 physbo==2.0.0 lightgbm==3.2.1
 ```
+This installation via pip normally finishes in about 40 seconds.
 
 ## How to run DyRAMO
 
