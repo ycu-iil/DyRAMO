@@ -60,6 +60,10 @@ Expected outputs
 - `search_result.npz`: A binary file containing information on the search results. Please refer [PHYSBO documentation](https://issp-center-dev.github.io/PHYSBO/manual/master/en/notebook/tutorial_basic.html#Serializing-the-results) for details.
 - `result/`: A directory containing the results of molecule generation with ChemTSv2.
 
+Expected run time
+- Generating 10,000 molecules with a C-value of 0.01 is generally assumed to take about 10 minutes.
+- In this case, this generation is set to be repeated 40 times, requiring a total of approximately 7 hours.
+
 ## Settings to run DyRAMO
 
 The settings for DYRAMO and ChemTSv2 are described in a single yaml file.
