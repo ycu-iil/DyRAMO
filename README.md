@@ -54,6 +54,12 @@ Please execute `run.py` with the yaml file as an argument.
 python run.py -c config/setting_dyramo.yaml
 ```
 
+Expected outputs
+- `run.log`: An execution log file for DyRAMO.
+- `serach_history.csv`: A csv file containing information on the explored input variables and the corresponding objective variables.
+- `search_result.npz`: A binary file containing information on the search results. Please refer [PHYSBO documentation](https://issp-center-dev.github.io/PHYSBO/manual/master/en/notebook/tutorial_basic.html#Serializing-the-results) for details.
+- `result/`: A directory containing the results of molecule generation with ChemTSv2.
+
 ## Settings to run DyRAMO
 
 The settings for DYRAMO and ChemTSv2 are described in a single yaml file.
