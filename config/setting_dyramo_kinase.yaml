@@ -1,0 +1,123 @@
+# Basic setting
+c_val: 0.01
+# search_type: MP_MCTS   # for MPChemTSv2
+# threshold_type: [time, generation_num]
+threshold_type: generation_num
+# hours: 0.01
+generation_num: 10000
+output_dir: result/dyramo_kinase
+model_setting:
+  model_json: model/model_chembl220k.tf25.json
+  model_weight: model/model_chembl220k_rand.tf25.best.ckpt.h5
+token: model/tokens_chembl220k_rand.pkl
+reward_setting: 
+  reward_module: reward.DyRAMO_kinase_reward
+  reward_class: DyRAMO_reward
+
+# Advanced setting
+expansion_threshold: 0.995
+simulation_num: 3
+flush_threshold: -1
+policy_setting: 
+  policy_module: policy.ucb1
+  policy_class: Ucb1
+
+# Restart setting
+save_checkpoint: False
+restart: False   # If you want to use the restart function during a BO cycle, set `restart` here to False and set `chemtsv2_restart` to True.
+checkpoint_file: ../chemtsv2.ckpt.pkl
+
+# Filter setting
+use_radical_filter: True
+radical_filter:
+  module: filter.radical_filter
+  class: RadicalFilter
+use_heavy_atom_count_filter: True
+heavy_atom_count_filter:
+  module: filter.heavy_atom_count_filter
+  class: HeavyAtomCountFilter
+  threshold: 45
+include_filter_result_in_reward: True
+
+# Neutralization
+neutralization: True
+neutralization_strategy: False  # canonicalize
+
+# Random seed
+random_seed: # automatically set during the execution of DyRAMO.
+
+# User settings
+# Settings for reward function in molecule generation
+reward_function:
+  property:
+    EGFR: {scaler: max_gauss, mu: 9, sigma: 2, weight: 8}
+    ERBB2: {scaler: min_gauss, mu: 2, sigma: 2, weight: 1}
+    ABL: {scaler: min_gauss, mu: 2, sigma: 2, weight: 1}
+    SRC: {scaler: min_gauss, mu: 2, sigma: 2, weight: 1}
+    LCK: {scaler: min_gauss, mu: 2, sigma: 2, weight: 1}
+    PDGFRbeta: {scaler: min_gauss, mu: 2, sigma: 2, weight: 1}
+    VEGFR2: {scaler: min_gauss, mu: 2, sigma: 2, weight: 1}
+    FGFR1: {scaler: min_gauss, mu: 2, sigma: 2, weight: 1}
+    EPHB4: {scaler: min_gauss, mu: 2, sigma: 2, weight: 1}
+    Metabolic_stability: {scaler: max_gauss, mu: 75, sigma: 20, weight: 1}
+    Permeability: {scaler: max_gauss, mu: 1, sigma: 1, weight: 1}
+    Solubility: {scaler: max_gauss, mu: -2, sigma: 0.6, weight: 1}
+    hERG: {scaler: min_gauss, mu: 3, sigma: 3, weight: 1}
+
+search_range:
+  EGFR: {min: 0.3, max: 0.5, step: 0.1}
+  ERBB2: {min: 0.3, max: 0.5, step: 0.1}
+  ABL: {min: 0.3, max: 0.5, step: 0.1}
+  SRC: {min: 0.3, max: 0.5, step: 0.1}
+  LCK: {min: 0.3, max: 0.5, step: 0.1}
+  PDGFRbeta: {min: 0.3, max: 0.5, step: 0.1}
+  VEGFR2: {min: 0.3, max: 0.5, step: 0.1}
+  FGFR1: {min: 0.3, max: 0.5, step: 0.1}
+  EPHB4: {min: 0.3, max: 0.5, step: 0.1}
+  Metabolic_stability: {min: 0.3, max: 0.5, step: 0.1}
+  Permeability: {min: 0.3, max: 0.5, step: 0.1}
+  Solubility: {min: 0.3, max: 0.5, step: 0.1}
+  hERG: {min: 0.3, max: 0.5, step: 0.1}
+
+
+# Setting for objective function in Bayesian optimization
+DSS:
+  reward: {ratio: 0.1}
+  EGFR: {priority: high}
+  ERBB2: {priority: low}
+  ABL: {priority: low}
+  SRC: {priority: low}
+  LCK: {priority: low}
+  PDGFRbeta: {priority: low}
+  VEGFR2: {priority: low}
+  FGFR1: {priority: low}
+  EPHB4: {priority: low}
+  Metabolic_stability: {priority: low}
+  Permeability: {priority: low}
+  Solubility: {priority: low}
+  hERG: {priority: low}
+
+
+# Setting for search strategies in Bayesian optimization (BO)
+BO:
+  # num_random_search: Maximum number of random search process.
+  # num_bayes_search: Maximum number of searching process by Bayesian optimization.
+  # score: The type of aquision funciton. TS (Thompson Sampling), EI (Expected Improvement) and PI (Probability of Improvement) are available.
+  # interval: The interval number of learning the hyper parameter. If you set the negative value to interval, the hyper parameter learning is not performed. If you set zero to interval, the hyper parameter learning is performed only at the first step.
+  # num_rand_basis: The number of basis function. If you choose 0, ordinary Gaussian process run.
+  num_random_search: 10
+  num_bayes_search: 30
+  score: EI
+  interval: 10
+  num_rand_basis: 500
+  seed: 0
+# Number of molecule generation at each search point
+num_generation: 3
+
+# Setting for restart
+chemtsv2_restart: False
+bo_restart: False
+
+# Setting for MPChemTSv2
+chemtsv2_mp: False
+num_processors: 4
