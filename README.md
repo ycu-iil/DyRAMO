@@ -182,7 +182,7 @@ More details can be found in the following [link](https://github.com/molecule-ge
 }
 ```
 > [!NOTE]
-> If you would like to reproduce the results of the above article, please checkout to [`b6c19e7`](https://github.com/ycu-iil/DyRAMO/tree/b6c19e72d4351c8e26b2decfd36ddf3a862e0d3f).
+> If you would like to reproduce the results of the above article, please refer to [doc/reproduction_instruction.md](https://github.com/ycu-iil/DyRAMO/blob/main/doc/reproduction_instruction.md).
 
 
 ## License
