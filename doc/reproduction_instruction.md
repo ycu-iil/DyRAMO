@@ -104,9 +104,22 @@ python run.py -c config/setting_dyramo_kinase.yaml
 
 This configuration file refers `reward/DyRAMO_kinase_reward.py` to compute a reward function.
 
+## Results in Supplementary Information: Molecular design using Tanimoto combo as a criterion for defining ADs.
+
+In this script, shapescreen is used to calculate similarity. Please install CDPKit according to the following documentation: https://cdpkit.org/v1.1.1/installation.html
+
+Then please prepare `config/setting_dyramo_shapescreen.yaml` as the configuration file for `run.py`, and execute the following:
+
+```bash
+python run.py -c config/setting_dyramo_shapescreen.yaml
+```
+
+This configuration file refers `reward/DyRAMO_shapescreen_reward.py` to compute a reward function.
+
+For more details about shapescreen, please refer to the official documentation: https://cdpkit.org/v1.1.1/applications/shapescreen.html?highlight=shapescreen
 
 ## Additional Informations
 
-For a more accurate reproduction of the results, please checkout to the following commit: [b6c19e7](https://github.com/ycu-iil/DyRAMO/tree/b6c19e72d4351c8e26b2decfd36ddf3a862e0d3f).
+For a more accurate reproduction of the results (excluding results using the Tanimoto combo), please checkout to the following commit: [b6c19e7](https://github.com/ycu-iil/DyRAMO/tree/b6c19e72d4351c8e26b2decfd36ddf3a862e0d3f).
 Follow the README there to set up the environment with python=3.7 and chemtsv2=0.9.11, and then run the calculations.
 While the overall results will not be significantly different, this environment can make the generated molecules exactly match those in the paper.
