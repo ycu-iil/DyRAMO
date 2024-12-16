@@ -116,7 +116,7 @@ python run.py -c config/setting_dyramo_shapescreen.yaml
 
 This configuration file refers `reward/DyRAMO_shapescreen_reward.py` to compute a reward function.
 
-For more details about shapescreen, please refer to the official documentation: https://cdpkit.org/v1.1.1/applications/shapescreen.html?highlight=shapescreen
+For more details about shapescreen, please refer to the official documentation: https://cdpkit.org/v1.1.1/applications/shapescreen.html
 
 ## Additional Informations
 
